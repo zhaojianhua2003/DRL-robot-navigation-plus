@@ -2,7 +2,6 @@ FROM osrf/ros:noetic-desktop-full
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# ---- Headless OpenGL / Gazebo ----
 ENV LIBGL_ALWAYS_SOFTWARE=1
 ENV GAZEBO_HEADLESS_RENDERING=1
 ENV DISPLAY=
@@ -18,7 +17,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip3 install --no-cache-dir torch tensorboard squaternion
 
-RUN git clone --branch feature/add_docker --single-branch https://github.com/reiniscimurs/DRL-robot-navigation /DRL-robot-navigation
+RUN git clone --branch feature/docker_headless_noetic --single-branch https://github.com/reiniscimurs/DRL-robot-navigation /DRL-robot-navigation
 
 RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && \
     cd DRL-robot-navigation/catkin_ws && \

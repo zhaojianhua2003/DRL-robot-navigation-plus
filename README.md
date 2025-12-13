@@ -98,3 +98,22 @@ Rviz:
     <img width=80% src="https://github.com/reiniscimurs/DRL-robot-navigation/blob/main/velodyne.png">
 </p>
 
+
+## Running in Docker
+
+It is also possible to run the training inside a docker container in headless mode (no rviz/gazebo).    
+Build the docker image:
+```shell
+$ sudo docker build -t drl_noetic .
+```
+
+Then run the docker image in interactive mode:
+```shell
+$ sudo docker run -it --rm drl_noetic
+```
+
+Inside the docker, start the training:
+```shell
+$ cd DRL-robot-navigation/TD3
+$ python3 train_velodyne_td3.py
+```
