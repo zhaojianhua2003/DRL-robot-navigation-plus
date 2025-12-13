@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip3 install --no-cache-dir torch tensorboard squaternion
 
-RUN git clone https://github.com/reiniscimurs/DRL-robot-navigation /DRL-robot-navigation
+RUN git clone --branch feature/add_docker --single-branch https://github.com/reiniscimurs/DRL-robot-navigation /DRL-robot-navigation
 
 RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && \
     cd DRL-robot-navigation/catkin_ws && \
