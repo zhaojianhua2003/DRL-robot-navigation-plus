@@ -1,0 +1,27 @@
+# --- 1. Python 编译产生的垃圾 ---
+DRL-algorithms/__pycache__/
+*.py[cod]
+
+# --- 2. 数据集 (千万别传！) ---
+# 忽略 data 文件夹下的所有内容
+data/
+dataset/
+# 忽略所有 zip 和 tar.gz 压缩包
+*.zip
+*.tar.gz
+
+# --- 3. 训练产生的大文件 ---
+# 忽略所有模型权重文件
+*.pth
+*.ckpt
+*.h5
+# 忽略训练日志文件夹
+logs/
+runs/
+wandb/
+DRL-algorithms/results/
+DRL-algorithms/runs/
+# --- 4. 你的个人环境配置 ---
+.env
+.vscode/
+.idea/
