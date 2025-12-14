@@ -25,3 +25,6 @@ DRL-algorithms/runs/
 .env
 .vscode/
 .idea/
+# --- 5. 操作系统产生的垃圾 ---
+catkin_ws/build_isolated/
+catkin_ws/devel_isolated/

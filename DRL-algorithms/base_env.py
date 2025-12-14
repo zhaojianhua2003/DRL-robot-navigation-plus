@@ -21,8 +21,11 @@ GOAL_REACHED_DIST = 0.3
 COLLISION_DIST = 0.35
 TIME_DELTA = 0.1
 
+#define the launchfile for the environment
+launchfile = "base_world_scenario.launch"
 
 # Check if the random goal position is located on an obstacle and do not accept it if it is
+#change this functin to adapt to new environment
 def check_pos(x, y):
     goal_ok = True
 
@@ -65,7 +68,7 @@ def check_pos(x, y):
 class GazeboEnv:
     """Superclass for all Gazebo environments."""
 
-    def __init__(self, launchfile, environment_dim):
+    def __init__(self, environment_dim):
         self.environment_dim = environment_dim
         self.odom_x = 0
         self.odom_y = 0

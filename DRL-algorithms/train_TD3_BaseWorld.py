@@ -15,6 +15,7 @@ from base_env import GazeboEnv
 def evaluate(network, epoch, eval_episodes=10):
     avg_reward = 0.0
     col = 0
+    success = 0
     for _ in range(eval_episodes):
         count = 0
         state = env.reset()
@@ -27,14 +28,16 @@ def evaluate(network, epoch, eval_episodes=10):
             count += 1
             if reward < -90:
                 col += 1
+            if reward > 90:
+                success += 1
     avg_reward /= eval_episodes
     avg_col = col / eval_episodes
+    avg_succ = success / eval_episodes
     print("..............................................")
     print(
-        "Average Reward over %i Evaluation Episodes, Epoch %i: %f, %f"
-        % (eval_episodes, epoch, avg_reward, avg_col)
+        "Average Reward over %i Evaluation Episodes, Epoch %i: avg_reward:%f, avg_collision%f, avg_Success: %d"
+        % (eval_episodes, epoch, avg_reward, avg_col,avg_succ)
     )
-    print("..............................................")
     return avg_reward
 
 
@@ -249,7 +252,7 @@ if save_model and not os.path.exists("./pytorch_models"):
 # Create the training environment
 environment_dim = 20
 robot_dim = 4
-env = GazeboEnv("multi_robot_scenario.launch", environment_dim)
+env = GazeboEnv(environment_dim)
 time.sleep(5)
 torch.manual_seed(seed)
 np.random.seed(seed)
