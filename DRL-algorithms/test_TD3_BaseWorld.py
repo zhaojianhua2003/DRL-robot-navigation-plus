@@ -46,7 +46,7 @@ class TD3(object):
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")  # cuda or cpu
 seed = 0  # Random seed number
 max_ep = 500  # maximum number of steps per episode
-file_name = "TD3_baseWorld"  # name of the file to load the policy from
+file_name = "TD3_BaseWorld"  # name of the file to load the policy from
 
 
 # Create the testing environment

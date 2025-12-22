@@ -23,9 +23,12 @@ TIME_DELTA = 0.1
 
 #define the launchfile for the environment
 launchfile = "base_world_scenario.launch"
+#change get_reward in the class GazeboEnv
+#change check_pos to adapt to new environment
+
+
 
 # Check if the random goal position is located on an obstacle and do not accept it if it is
-#change this functin to adapt to new environment
 def check_pos(x, y):
     goal_ok = True
 
